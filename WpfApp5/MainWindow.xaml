@@ -63,6 +63,65 @@
                 </DataTrigger>
             </Style.Triggers>
         </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="Height" Value="38"/>
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderBrush" Value="#A0A885"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Padding" Value="8"/>
+            <Style.Triggers>
+                <Trigger Property="IsFocused" Value="True">
+                    <Setter Property="BorderBrush" Value="#2474BD"/>
+                    <Setter Property="Background" Value="LightYellow"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style TargetType="CheckBox">
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="Foreground" Value="#252A34"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Width" Value="300"/>
+            <Setter Property="Height" Value="45"/>
+            <Setter Property="Background" Value="#2474BD"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="FontSize" Value="20"/>
+                </Trigger>
+                <DataTrigger Binding="{Binding Text.Length, ElementName=nameInput}" Value="0">
+                    <Setter Property="IsEnabled" Value="False"/>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding Text.Length, ElementName=emailInput}" Value="0">
+                    <Setter Property="IsEnabled" Value="False"/>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding Text.Length, ElementName=passwordInput}" Value="0">
+                    <Setter Property="IsEnabled" Value="False"/>
+                </DataTrigger>
+                <DataTrigger Binding="{Binding IsChecked, ElementName=termsCheck}" Value="False">
+                    <Setter Property="IsEnabled" Value="False"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+        <Style TargetType="Label" x:Key="statusLabelStyle">
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Foreground" Value="Green"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Content" Value="Minden adat megfelelő, regisztrálhatsz"/>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding IsEnabled, ElementName=regist}" Value="False">
+                    <Setter Property="Foreground" Value="Red"/>
+                    <Setter Property="Content" Value="Kérjük, tölts ki az összes mezőt!"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
     </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
@@ -94,7 +153,7 @@
         <Label Content="A jelszó megadása kötelező!" Grid.Column="1" Grid.Row="6" x:Name="passwordError"  Style="{StaticResource passwordErrorStyle}"/>
         <CheckBox Content="Elfogadom a felhasználási feltételeket." Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="2" x:Name="termsCheck"/>
         <Label Content="A regisztrációhoz el kell fogadnod a felhasználási feltételeket!" x:Name="termsError" Grid.Column="0" Grid.Row="8" Grid.ColumnSpan="2"  Style="{StaticResource termsErrorStyle}"/>
-        <Button Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="2" Content="Regisztráció"/>
-        <Label Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="2" x:Name="statusLabel"/>
+        <Button Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="2" Content="Regisztráció" x:Name="regist"/>
+        <Label Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="2" x:Name="statusLabel" Style="{StaticResource statusLabelStyle}"/>
     </Grid>
 </Window>
