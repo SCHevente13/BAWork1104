@@ -1,0 +1,100 @@
+﻿<Window x:Class="WpfApp5.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp5"
+        mc:Ignorable="d"
+        Title="Regisztráció" Height="900" Width="650" Background="#F0F2F5" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="30"/>
+            <Setter Property="Foreground" Value="#2474BD"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="Foreground" Value="#252A34"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+        <Style TargetType="Label" x:Key="nameErrorStyle">
+            <Setter Property="Visibility" Value="Hidden"/>
+            <Setter Property="Foreground" Value="Red"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="FontSize" Value="13"/>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Text, ElementName=nameInput}" Value="">
+                    <Setter Property="Visibility" Value="Visible"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+        <Style TargetType="Label" x:Key="emailErrorStyle">
+            <Setter Property="Visibility" Value="Hidden"/>
+            <Setter Property="Foreground" Value="Red"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="FontSize" Value="13"/>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Text, ElementName=emailInput}" Value="">
+                    <Setter Property="Visibility" Value="Visible"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+        <Style TargetType="Label" x:Key="passwordErrorStyle">
+            <Setter Property="Visibility" Value="Hidden"/>
+            <Setter Property="Foreground" Value="Red"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="FontSize" Value="13"/>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding Text, ElementName=passwordInput}" Value="">
+                    <Setter Property="Visibility" Value="Visible"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+        <Style TargetType="Label" x:Key="termsErrorStyle">
+            <Setter Property="Visibility" Value="Hidden"/>
+            <Setter Property="Foreground" Value="Red"/>
+            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="FontSize" Value="13"/>
+            <Style.Triggers>
+                <DataTrigger Binding="{Binding IsChecked, ElementName=termsCheck}" Value="false">
+                    <Setter Property="Visibility" Value="Visible"/>
+                </DataTrigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition Height="55"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="65"/>
+            <RowDefinition Height="60"/>
+        </Grid.RowDefinitions>
+        <TextBlock Text="Regisztráció" Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="2"/>
+        <Label Content="Teljesnév:" Grid.Column="0" Grid.Row="1"/>
+        <TextBox Grid.Column="1" Grid.Row="1" x:Name="nameInput"/>
+        <Label Content="A név megadása kötelező!" Grid.Column="1" Grid.Row="2" x:Name="nameError" Style="{StaticResource nameErrorStyle}"/>
+        <Label Content="E-mail-cím:" Grid.Column="0" Grid.Row="3"/>
+        <TextBox Grid.Column="1" Grid.Row="3" x:Name="emailInput"/>
+        <Label Content="A e-mail-cím megadása kötelező!" Grid.Column="1" Grid.Row="4" x:Name="emailError" Style="{StaticResource emailErrorStyle}"/>
+        <Label Content="Jelszó:" Grid.Column="0" Grid.Row="5"/>
+        <TextBox Grid.Column="1" Grid.Row="5" x:Name="passwordInput"/>
+        <Label Content="A jelszó megadása kötelező!" Grid.Column="1" Grid.Row="6" x:Name="passwordError"  Style="{StaticResource passwordErrorStyle}"/>
+        <CheckBox Content="Elfogadom a felhasználási feltételeket." Grid.Column="0" Grid.Row="7" Grid.ColumnSpan="2" x:Name="termsCheck"/>
+        <Label Content="A regisztrációhoz el kell fogadnod a felhasználási feltételeket!" x:Name="termsError" Grid.Column="0" Grid.Row="8" Grid.ColumnSpan="2"  Style="{StaticResource termsErrorStyle}"/>
+        <Button Grid.Row="9" Grid.Column="0" Grid.ColumnSpan="2" Content="Regisztráció"/>
+        <Label Grid.Row="10" Grid.Column="0" Grid.ColumnSpan="2" x:Name="statusLabel"/>
+    </Grid>
+</Window>
