@@ -11,6 +11,41 @@
             <Setter Property="FontSize" Value="30"/>
             <Setter Property="FontWeight" Value="Bold"/>
         </Style>
+        <Style TargetType="Label">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Foreground" Value="#30343B"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="Height" Value="38"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderBrush" Value="#AAB3BF"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="8"/>
+            <Style.Triggers>
+                <Trigger Property="IsFocused" Value="True">
+                    <Setter Property="Background" Value="LightYellow"/>
+                    <Setter Property="BorderBrush" Value="#275D91"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+        <Style TargetType="ComboBox">
+            <Setter Property="Height" Value="38"/>
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Background" Value="White"/>
+            <Setter Property="BorderBrush" Value="#AAB3BF"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="8"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="LightYellow"/>
+                    <Setter Property="BorderBrush" Value="#275D91"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
     </Window.Resources>
     <Grid Margin="40">
         <Grid.ColumnDefinitions>
@@ -32,7 +67,11 @@
         <TextBox x:Name="nameInput" Grid.Row="1" Grid.Column="1"/>
         <Label Content="Film címe:" Grid.Row="2" Grid.Column="0"/>
         <ComboBox x:Name="movieInput" Grid.Row="2" Grid.Column="1">
-            
+            <ComboBoxItem Content="Movie1"/>
+            <ComboBoxItem Content="Movie2"/>
+            <ComboBoxItem Content="Movie3"/>
+            <ComboBoxItem Content="Movie4"/>
+            <ComboBoxItem Content="Movie5"/>
         </ComboBox>
         <Label Content="Jegyek száma:" Grid.Row="3" Grid.Column="0"/>
         <TextBox x:Name="ticketInput" Grid.Row="3" Grid.Column="1"/>
