@@ -5,7 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp5"
         mc:Ignorable="d"
-        Title="TicketWindow" Height="450" Width="800">
+        Title="TicketWindow" Height="580" Width="800">
+    <Window.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontSize" Value="30"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+    </Window.Resources>
     <Grid Margin="40">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="180"/>
@@ -22,6 +28,17 @@
             <RowDefinition Height="60"/>
         </Grid.RowDefinitions>
         <TextBlock Text="Mozijegy-foglalás" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"/>
-        <Label/>
+        <Label Content="Teljes név:" Grid.Row="1" Grid.Column="0"/>
+        <TextBox x:Name="nameInput" Grid.Row="1" Grid.Column="1"/>
+        <Label Content="Film címe:" Grid.Row="2" Grid.Column="0"/>
+        <ComboBox x:Name="movieInput" Grid.Row="2" Grid.Column="1">
+            
+        </ComboBox>
+        <Label Content="Jegyek száma:" Grid.Row="3" Grid.Column="0"/>
+        <TextBox x:Name="ticketInput" Grid.Row="3" Grid.Column="1"/>
+        <CheckBox Content="VIP ülőhelyet kérek." x:Name="vipCheck" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2"/>
+        <Label Content="VIP jegy kiválasztva" Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="2"/>
+        <Button Content="Button" Grid.Row="6" Grid.Column="0" Grid.ColumnSpan="2"/>
+        <Label Content="Yup" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2"/>
     </Grid>
 </Window>
